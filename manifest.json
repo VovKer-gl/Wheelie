@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Sportlogiq Scroll Control",
+  "version": "1.0",
+  "description": "Click on the m-1f and p-1f buttons through the mouse wheel.",
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://app.sportlogiq.com/EventorApp.php*"],
+      "js": ["content.js"]
+    }
+  ]
+}
