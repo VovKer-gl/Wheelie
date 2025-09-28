@@ -19,4 +19,27 @@
             if (btn) btn.click();
         }
     }, { passive: true });
+    document.addEventListener("mousedown", function(event) {
+        if (event.shiftKey) {
+            if (event.button === 3) {
+                let btn = document.getElementById("m-1s");
+                if (btn) btn.click();
+                event.preventDefault();
+            } else if (event.button === 4) {
+                let btn = document.getElementById("p-1s");
+                if (btn) btn.click();
+                event.preventDefault();
+            }
+        } else {
+            if (event.button === 3) {
+                let btn = document.getElementById("m-1f");
+                if (btn) btn.click();
+                event.preventDefault();
+            } else if (event.button === 4) {
+                let btn = document.getElementById("p-1f");
+                if (btn) btn.click();
+                event.preventDefault();
+            }
+        }
+    });
 })();
