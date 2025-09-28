@@ -1,18 +1,25 @@
 # Scroll-to-Button Extension
 
-A Chrome extension that maps mouse wheel scrolls to button clicks.
+A Chrome extension that maps mouse actions to button clicks on the page.
 
-* Scrolling **up** → clicks the button with ID `m-1f`
-* Scrolling **down** → clicks the button with ID `p-1f`
+## Features
 
-The extension only works on pages matching a specific URL pattern defined in `manifest.json`.
+- **Mouse Wheel Scrolls**
+    - Scrolling up → clicks the button with ID `m-1f`
+    - Scrolling down → clicks the button with ID `p-1f`
+    - Holding **Shift** while scrolling up → clicks the button with ID `m-1s`
+    - Holding **Shift** while scrolling down → clicks the button with ID `p-1s`
 
----
+- **Mouse Side Buttons**
+    - Side "Back" button → clicks the button with ID `m-1f`
+    - Side "Forward" button → clicks the button with ID `p-1f`
+    - Holding **Shift** + Side "Back" → clicks the button with ID `m-1s`
+    - Holding **Shift** + Side "Forward" → clicks the button with ID `p-1s`
 
 ## 📂 Project structure
 
 ```
-my-extension/
+Wheelie/
  ├─ manifest.json   # Extension configuration
  ├─ content.js      # Script handling scroll events
  └─ README.md       # Documentation
