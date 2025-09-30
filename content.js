@@ -17,48 +17,73 @@
         if (!isMouseOverGameEventsContainer) {
             event.preventDefault();
 
-            // Ваша логіка для кнопок m-1f та p-1f
-            if (event.shiftKey) {
+            const frameEditActive = document.querySelector("#frame-edit-controls.edit-current");
+
+            if (frameEditActive) {
                 if (event.deltaY < 0) {
-                    let btn = document.getElementById("m-1s");
+                    let btn = document.getElementById("f-previous-frame");
                     if (btn) btn.click();
                 } else if (event.deltaY > 0) {
-                    let btn = document.getElementById("p-1s");
+                    let btn = document.getElementById("f-next-frame");
                     if (btn) btn.click();
                 }
-                return;
-            }
+            } else {
+                if (event.shiftKey) {
+                    if (event.deltaY < 0) {
+                        let btn = document.getElementById("m-1s");
+                        if (btn) btn.click();
+                    } else if (event.deltaY > 0) {
+                        let btn = document.getElementById("p-1s");
+                        if (btn) btn.click();
+                    }
+                    return;
+                }
 
-            if (event.deltaY < 0) {
-                let btn = document.getElementById("m-1f");
-                if (btn) btn.click();
-            } else if (event.deltaY > 0) {
-                let btn = document.getElementById("p-1f");
-                if (btn) btn.click();
+                if (event.deltaY < 0) {
+                    let btn = document.getElementById("m-1f");
+                    if (btn) btn.click();
+                } else if (event.deltaY > 0) {
+                    let btn = document.getElementById("p-1f");
+                    if (btn) btn.click();
+                }
             }
         }
     }, { passive: false });
 
     document.addEventListener("mousedown", function(event) {
-        if (event.shiftKey) {
+        const frameEditActive = document.querySelector("#frame-edit-controls.edit-current");
+
+        if (frameEditActive) {
             if (event.button === 3) {
-                let btn = document.getElementById("m-1s");
+                let btn = document.getElementById("f-previous-frame");
                 if (btn) btn.click();
                 event.preventDefault();
             } else if (event.button === 4) {
-                let btn = document.getElementById("p-1s");
+                let btn = document.getElementById("f-next-frame");
                 if (btn) btn.click();
                 event.preventDefault();
             }
         } else {
-            if (event.button === 3) {
-                let btn = document.getElementById("m-1f");
-                if (btn) btn.click();
-                event.preventDefault();
-            } else if (event.button === 4) {
-                let btn = document.getElementById("p-1f");
-                if (btn) btn.click();
-                event.preventDefault();
+            if (event.shiftKey) {
+                if (event.button === 3) {
+                    let btn = document.getElementById("m-1s");
+                    if (btn) btn.click();
+                    event.preventDefault();
+                } else if (event.button === 4) {
+                    let btn = document.getElementById("p-1s");
+                    if (btn) btn.click();
+                    event.preventDefault();
+                }
+            } else {
+                if (event.button === 3) {
+                    let btn = document.getElementById("m-1f");
+                    if (btn) btn.click();
+                    event.preventDefault();
+                } else if (event.button === 4) {
+                    let btn = document.getElementById("p-1f");
+                    if (btn) btn.click();
+                    event.preventDefault();
+                }
             }
         }
     });
